@@ -45,6 +45,9 @@ module.exports = function(app, passport){
 	app.get('/morris',isAuthenticated, function(req, res) {
 	   res.render('template/morris', {});
 	});
+	app.get('/flotTest',isAuthenticated, function(req, res) {
+	   res.render('template/flotTest', {});
+	});
 	app.get('/tables',isAuthenticated, function(req, res) {
 	   res.render('template/tables', {});
 	});
@@ -73,11 +76,11 @@ module.exports = function(app, passport){
 	   res.render('template/blank', {});
 	});
 	
-  	app.get('/bbs',isAuthenticated, function(req, res) {
+  	app.get('/bbs', function(req, res) {
 	   res.render('template/bbs', {});
 	});
 	
-	app.get('/bbs/list',isAuthenticated, function(req, res) {
+	app.get('/bbs/list', function(req, res) {
 		 Bbs.find({}, 
 	      function(err, bbs) {
 	        // In case of any error, return using the done method
@@ -88,6 +91,22 @@ module.exports = function(app, passport){
 	      }
 	    );
 	});
+
+	app.get('/Tests',isAuthenticated, function(req, res) {
+		res.render('template/bbs', {});
+	 });
+
+	app.get('/flotTests/list', function(req, res) {
+		Bbs.find({}, 
+		 function(err, flotTest) {
+		   // In case of any error, return using the done method
+		   if (err)
+			 return done(err);
+		   // Username does not exist, log error & redirect back
+		   res.send(flotTest);
+		 }
+	   );
+   });
 
 	app.post('/bbs/create',isAuthenticated, function(req, res) {
 		

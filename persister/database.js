@@ -9,7 +9,7 @@ var db = function() {
 
     config: function(addr, dbname, opts, callback) {
       if( !initFlag ){
-        var connectUrl = 'mongodb://' + (addr ? addr : 'localhost:27017') + '/' + (dbname ? dbname : 'sbadmin');
+        var connectUrl = 'mongodb://ugv7gni9zwixma1:MfHNJK6EpxQv7XOg7h72@bxkxm7fry9cngt3-mongodb.services.clever-cloud.com:27017/bxkxm7fry9cngt3' ;
         mongoose.connect(connectUrl, (opts ? opts : {}));
         //mongoose.createConnection(connectUrl, (opts ? opts : {}));
 
